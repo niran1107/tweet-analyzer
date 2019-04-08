@@ -1,0 +1,17 @@
+FROM node:8.11-slim
+
+WORKDIR /app
+
+RUN npm install -g nodemon
+RUN npm config set registry http://registry.npmjs.org
+
+ADD package.json /app/package.json
+ADD package-lock.json /app/package-lock.json
+RUN npm install
+RUN mv /app/node_modules /node_modules
+
+ADD . /app
+
+EXPOSE 80
+
+CMD ["node", "server.js", "--port", "80", "--queue", "output", "--qserver", "amqp://rabbitmq"]

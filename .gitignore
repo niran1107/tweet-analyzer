@@ -1,0 +1,16 @@
+.vscode
+
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# .NET Core
+project.lock.json
+bin
+obj
+
+# Node.JS
+node_modules
+
+SetEnvironmentVariables.secret.ps1
